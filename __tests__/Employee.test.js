@@ -10,7 +10,11 @@ const Employee = require("../lib/Employee");
 describe("Employee", () => {
     describe("getName", () => {
         it("should return the name of the employee", () => {
+            const name = "Name";
 
+            const employee = new Employee(name);
+
+            expect(employee.getName()).toEqual(name);
         })
     })
 

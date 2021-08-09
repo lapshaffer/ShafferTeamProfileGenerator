@@ -11,7 +11,11 @@ const Engineer = require("../lib/Engineer");
 describe("Engineer", () => {
     describe("getName", () => {
          it("should return the name of the engineer", () => {
-    
+            const name = "Name";
+
+            const engineer = new Engineer(name);
+
+            expect(engineer.getName()).toEqual(name);
         })
     })
     

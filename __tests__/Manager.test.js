@@ -10,7 +10,12 @@ const Manager = require("../lib/Manager");
 describe("Manager", () => {
     describe("getName", () => {
         it("should return the name of the manager", () => {
-    
+            const name = "Name";
+
+            const manager = new Manager(name);
+
+            expect(manager.getName()).toEqual(name);
+
         })
     })
     
