@@ -7,6 +7,7 @@
         // append cards to HTML file at the end of each new employee prompt
 
 const inquirer = require('inquirer');
+const fs = require('fs');
 
 const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
@@ -149,4 +150,4 @@ function internInquire() {
         })
     };
 
-managerInquire()
+module.exports = {managerInquire}
