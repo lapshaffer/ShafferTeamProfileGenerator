@@ -1,2 +1,23 @@
-/* TODO:
-- Add any styles not already provided by bootstrap */
+header {
+    background-color: rgb(44, 44, 207);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+    padding: 0px;
+    box-shadow: 5px 5px 3px lightgray;
+}
+
+.card div:first-child {
+    background: rgb(238, 250, 255);
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.card div:last-child {
+    background: #e1f5f8;
+    padding: 15px;
+}

@@ -1,11 +1,3 @@
-// TODO:
-// test the following functions:
-    // getName()
-    // getId()
-    // getEmail()
-    // getRole(), must return Engineer
-    // getGithub()
-
 const Engineer = require("../lib/Engineer");
 
 describe("Engineer", () => {

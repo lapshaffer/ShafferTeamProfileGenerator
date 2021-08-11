@@ -1,10 +1,3 @@
-// TODO:
-// test the following functions:
-    // getName()
-    // getId()
-    // getEmail()
-    // getRole(), must return Manager
-
 const Manager = require("../lib/Manager");
 
 describe("Manager", () => {

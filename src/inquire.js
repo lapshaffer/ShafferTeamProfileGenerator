@@ -1,20 +1,14 @@
-// TODO:
-// write out inquirer prompts to record answers on each teammate
-    // look up how to split inquirer into branching paths based on user input
-    // Manager's info is first
-    // Print HTML skeleton and manager card after first inquire
-        // .then another prompt based on selection of next employee
-        // append cards to HTML file at the end of each new employee prompt
-
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+// pull the sortEmployees and generateHTML functions from the page-builder.js file
+const functions = require('./page-builder')
+// pull the classes for each employee type from their respective files
 const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
-
+// each employee will be pushed into this array once all of their appropriate questions have been answered
 const teamMembers = [];
-
+// array of questions for the manager, ie, the person who is running this program
 const managerQuestions = [
     {
         type: 'input',
@@ -43,7 +37,7 @@ const managerQuestions = [
         name: 'nextMember'
     }
 ];
-
+// array of questions for each engineer
 const engineerQuestions = [
     {
         type: 'input',
@@ -72,7 +66,7 @@ const engineerQuestions = [
         name: 'nextMember' 
     }
 ];
-
+// array of questions for each intern
 const internQuestions = [
     {
         type: 'input',
@@ -101,7 +95,7 @@ const internQuestions = [
         name: 'nextMember'
     }
 ];
-
+// Ask the manager-specific questions in the terminal, then select a new employee type
 function managerInquire() {
     inquirer
         .prompt(managerQuestions)
@@ -113,11 +107,11 @@ function managerInquire() {
             } else if (responses.nextMember === 'Intern') {
                 internInquire();
             } else {
-
+                generateHtml(teamMembers);
             }
         })
     };
-
+// ask engineer-specific questions in terminal, then select next employee type
 function engineerInquire() {
     inquirer
         .prompt(engineerQuestions)
@@ -129,11 +123,11 @@ function engineerInquire() {
             } else if (responses.nextMember === 'Intern') {
                 internInquire();
             } else {
-
+                generateHtml(teamMembers);
             }
         })
     };
-
+// ask intern-specific questions in terminal, then select next employee type
 function internInquire() {
     inquirer
         .prompt(internQuestions)
@@ -145,9 +139,14 @@ function internInquire() {
             } else if (responses.nextMember === 'Intern') {
                 internInquire();
             } else {
-
+                generateHtml(teamMembers);
             }
         })
     };
+// if no other employees are selected, run this function to start generating the HTML on the page-builder.js file
+function generateHtml(teamMembers) {
+    fs.writeFile('./dist/team.html', functions.sortEmployees(teamMembers),
+        err => err ? console.log(err) : console.log('Your team.html file is in the ./dist folder'));
+}
 
 module.exports = {managerInquire}
