@@ -31,10 +31,11 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
 ## Resources and Questions
-
+```md
 You can find a video demo of this application here: https://drive.google.com/file/d/1QZ9V-rDjkyyYKhezLkFSc5lbVxc_292e/view
 
 Sample of generated team.html file: https://github.com/lapshaffer/ShafferTeamProfileGenerator/blob/main/dist/sample-team.html
 
 Please reach out to me with any questions about this application at lapshaffer@gmail.com
 GitHub: https://github.com/lapshaffer
+```
